@@ -19,7 +19,7 @@ func main() {
 	scanner := bufio.NewScanner(file)
 	r:= regexp.MustCompile(`^(\d+)-(\d+) ([a-z]): ([a-z]+)$`)
 
-	valid := 0
+	partOneValid := 0
 	partTwoValid := 0
     for scanner.Scan() {
 		// part one 
@@ -30,7 +30,7 @@ func main() {
 		password := matches[4]
 
 		if  min <= strings.Count(password, letter) && strings.Count(password, letter) <= max{
-			valid++
+			partOneValid++
 		}
 
 		// part two
@@ -39,7 +39,6 @@ func main() {
 			partTwoValid++
 		}
 	}
-	fmt.Printf("PartOne valid= %d\n", valid)
+	fmt.Printf("PartOne valid= %d\n", partOneValid)
 	fmt.Printf("PartTwo valid= %d\n", partTwoValid)
-
 }
